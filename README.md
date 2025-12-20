@@ -5,7 +5,6 @@ The goal of this challenge is to **improve consistency, strengthen fundamentals,
 
 After completing this challenge, all projects will be showcased on a **main portfolio website**.
 
----
 
 ## 🧠 What I’m Learning
 - HTML structure & semantics
@@ -14,14 +13,12 @@ After completing this challenge, all projects will be showcased on a **main port
 - Problem-solving through real projects
 - Building habits through daily practice
 
----
 
 ## 🛠 Tech Stack
 - **HTML5**
 - **CSS3**
 - **JavaScript**
 
----
 
 ## 📅 Project List
 
@@ -58,7 +55,6 @@ After completing this challenge, all projects will be showcased on a **main port
 | 29 | Login Page | Frontend login form |
 | 30 | Portfolio Website | Showcase all projects |
 
----
 
 ## 📂 Project Structure
 ```text
@@ -71,6 +67,7 @@ After completing this challenge, all projects will be showcased on a **main port
 ├── day-30-portfolio/
 │
 └── README.md
+```
 
 ## 🌐 Live Demo (Coming Soon)
 
@@ -78,33 +75,27 @@ A main website will be created to display all projects in one place.
 
 **➡️ Portfolio Link**: Coming soon
 
-🎯 Challenge Rules
 
-One project per day
+## 🎯 Challenge Rules
 
-Focus on learning, not perfection
+- One project per day
+- Focus on learning, not perfection
+- Use beginner-friendly JavaScript
+- Push progress to GitHub daily
 
-Use beginner-friendly JavaScript
+## 📌 Future Improvements
 
-Push progress to GitHub daily
+- Refactor code
+- Improve UI/UX
+- Add animations
+- Optimize for mobile
+- Rewrite projects with better JavaScript practices
 
-📌 Future Improvements
+# ✨ Author
 
-Refactor code
-
-Improve UI/UX
-
-Add animations
-
-Optimize for mobile
-
-Rewrite projects with better JavaScript practices
-
-✨ Author
-
-Shin
+Nyxth-666
 Frontend Developer (In Progress 🚧)
 
-📜 License
+## 📜 License
 
 This project is open source and available for learning and inspiration.
