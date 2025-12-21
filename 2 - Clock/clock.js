@@ -22,7 +22,7 @@ function setDate(){
 
     // Hours
     const hours = time.getHours();
-    const degreeHours = ((hours / 60) * 360) + 90;
+    const degreeHours = ((hours / 12) * 360) + 90;
 
     // Days
     const days = time.getDay();
