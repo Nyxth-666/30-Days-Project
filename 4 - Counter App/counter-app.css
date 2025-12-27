@@ -1,0 +1,129 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Lilita+One&family=Pacifico&family=Roboto:wght@100..900&display=swap');
+
+/* Styles for the Counter App project */
+:root {
+    --primary-color: #F4FDFF;
+    --secondary-color: #F0F7FF;
+    --tertiary-color: #F3F5F7;
+    --font-main: Roboto;
+    --text-color: #282828;
+    --border-radius: 25px;
+    --border-shadow: 0 8px 20.5px 2.5px rgba(0, 0, 0, 0.33);
+    --buttons-shadow: 0 6px 10.5px 0.5px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--primary-color);
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
+
+main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    padding: 61px 52px;
+    width: 1020px;
+    height: 780px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--border-shadow);
+    gap: 87px;
+}
+
+.digit {
+    color: var(--text-color);
+    font-size: 250px;
+    font-weight: lighter;
+    text-shadow: 0 4px 9.2px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxes {
+    width: 100%;
+    gap: 29px;
+    display: flex;
+}
+
+.sign {
+    width: 288px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--buttons-shadow);
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: lighter;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 171px;
+    padding: 10px 122px;
+    font-size: 128px;
+}
+
+.decrement {
+    background-color: #E52E2E;
+}
+
+.decrement:hover {
+    transform: translateY(-5px);
+}
+
+.decrement:active {
+    background-color: #810505;
+    transform: translateY(0);
+}
+
+.reset {
+    background-color: #eeeeee;
+    height: 91px;
+    padding: 22px 94px;
+    font-size: 40px;
+}
+
+.reset:hover {
+    transform: translateY(-5px);
+}
+
+.reset:active {
+    background-color: #282828;
+    transform: translateY(0);
+}
+
+.increment {
+    background-color: #2EE534;
+}
+
+.increment:hover {
+    transform: translateY(-5px);
+}
+
+.increment:active {
+    background-color: #0A6E0A;
+    transform: translateY(0);
+}
