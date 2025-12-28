@@ -1,0 +1,150 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Lilita+One&family=Pacifico&family=Roboto:wght@100..900&display=swap');
+
+/* Styles for the Modal Pop-up project */
+:root {
+    --primary-color: #826FFF;
+    --secondary-color: #FFF;
+    --font-main: Inter;
+    --text-color: #000;
+    --border-radius: 20px;
+    --border-shadow: 0 4px 27px 0 rgba(0, 0, 0, 0.75);
+    --buttons-shadow: 0 6px 10.5px 0.5px rgba(130, 111, 255, 0.308);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+}
+
+body {
+    background-color: var(--primary-color);
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
+
+main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscription {
+    width: 651px;
+    height: 436px;
+    padding: 24px 26px;
+    border-radius: var(--border-radius);
+    background: var(--secondary-color);
+    box-shadow: var(--border-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+}
+
+.subscription .header,
+.modal .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.subscription .header h1,
+.modal .header h1 {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 36px;
+    line-height: auto;   
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 10,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 100
+}
+
+.subscription .header .exitbtn,
+.modal .header .exitbtn {
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.subscription .header .exitbtn:hover,
+.modal .header .exitbtn:hover {
+    transform: scale(1.2);
+    text-shadow: 0 4px 9.2px rgba(0, 0, 0, 0.35);
+}
+
+.subscription .header .exitbtn:active,
+.modal .header .exitbtn:active {
+    transform: scale(1);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.content p {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 19px;
+    line-height: auto;
+}
+
+.content .input-group {
+    position: relative;
+    width: 100%;
+}
+
+.content .input-group input {
+    width: 100%;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid #686868;
+    padding: 20px 23px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.content .input-group label {
+    position: absolute;
+    top: 20px;
+    left: 23px;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    font-weight: 200;
+    font-size: 17px;
+    line-height: auto;
+}
+
+.content .input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--buttons-shadow);
+    top: -8;
+    font-size: 12px;
+    color: #9b9b9b;
+}
