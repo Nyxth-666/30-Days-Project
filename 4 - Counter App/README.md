@@ -1,4 +1,4 @@
-# 📌 Color Flipper
+# 📌 Counter
 
 ## 📖 Description
 A counter app that can increment, decrement, and reset with a digit counter.
