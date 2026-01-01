@@ -9,54 +9,56 @@
 </head>
 <body>
     <main>
-        <section class="timer-section">
-            <div class="timer">
-                <span id="hr">00</span>:
-                <span id="min">00</span>.
-                <span id="sec">00</span>:
-                <span id="ms">00</span>
-            </div>
-            <div class="timer-buttons">
-                <button id="startButton"><span class="material-symbols-outlined">play_arrow</span>Play</button>
-                <button id="lapButton"><span class="material-symbols-outlined">flag</span>Lap</button>
-                <button id="resetButton"><span class="material-symbols-outlined">replay</span>Reset</button>
-            </div>
-        </section>
-        <section class="record-section">
-            <div class="record-content">
-                <div class="record">
-                    <span id="tophr">00</span>:
-                    <span id="topmin">00</span>:
-                    <span id="topsec">00</span>:
-                    <span id="topms">00</span>
+        <div class="wrapper">
+            <section class="timer-section">
+                <div class="timer">
+                    <span id="hr">00</span> :
+                    <span id="min">00</span> :
+                    <span id="sec">00</span> .
+                    <span id="ms">00</span>
                 </div>
-                <h2>Fastest Lap</h2>
-            </div>
-            <div class="record-content">
-                <div class="record">
-                    <span id="avghr">00</span>:
-                    <span id="avgmin">00</span>:
-                    <span id="avgsec">00</span>:
-                    <span id="avgms">00</span>
+                <div class="timer-buttons">
+                    <button class="startbtn" id="startButton"><span class="material-symbols-outlined">play_arrow</span>Play</button>
+                    <button class="lapbtn" id="lapButton"><span class="material-symbols-outlined">flag</span>Lap</button>
+                    <button class="resetbtn" id="resetButton"><span class="material-symbols-outlined">replay</span>Reset</button>
                 </div>
-                <h2>Average Lap</h2>
-            </div>
-            <div class="record-content">
-                <div class="record">
-                    <span id="lowhr">00</span>:
-                    <span id="lowmin">00</span>:
-                    <span id="lowsec">00</span>:
-                    <span id="lowms">00</span>
+            </section>
+            <section class="record-section">
+                <div class="record-content">
+                    <div class="record">
+                        <span id="tophr">00</span> :
+                        <span id="topmin">00</span> :
+                        <span id="topsec">00</span> .
+                        <span id="topms">00</span>
+                    </div>
+                    <h2>Fastest Lap</h2>
                 </div>
-                <h2>Slowest Lap</h2>
-            </div>
-        </section>
-        <section class="lap-section">
-            <header class="lap-head">
-                <h1>Lap History</h1>
-                <button><span class="material-symbols-outlined">clear_all</span></button>
-            </header>
-        </section>
+                <div class="record-content">
+                    <div class="record">
+                        <span id="avghr">00</span> :
+                        <span id="avgmin">00</span> :
+                        <span id="avgsec">00</span> .
+                        <span id="avgms">00</span>
+                    </div>
+                    <h2>Average Lap</h2>
+                </div>
+                <div class="record-content">
+                    <div class="record">
+                        <span id="lowhr">00</span> :
+                        <span id="lowmin">00</span> :
+                        <span id="lowsec">00</span> .
+                        <span id="lowms">00</span>
+                    </div>
+                    <h2>Slowest Lap</h2>
+                </div>
+            </section>
+            <section class="lap-section">
+                <header class="lap-head">
+                    <h1>Lap History</h1>
+                    <button><span class="material-symbols-outlined">clear_all</span></button>
+                </header>
+            </section>
+        </div>
     </main>
 </body>
 </html>
