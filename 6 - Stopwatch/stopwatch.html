@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=clear_all,flag,play_arrow,replay" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete,flag,pause,play_arrow,replay" />
     <link rel="stylesheet" href="stopwatch.css">
 </head>
 <body>
@@ -18,36 +18,43 @@
                     <span id="ms">00</span>
                 </div>
                 <div class="timer-buttons">
-                    <button class="startbtn" id="startButton"><span class="material-symbols-outlined">play_arrow</span>Play</button>
-                    <button class="lapbtn" id="lapButton"><span class="material-symbols-outlined">flag</span>Lap</button>
-                    <button class="resetbtn" id="resetButton"><span class="material-symbols-outlined">replay</span>Reset</button>
+                    <button class="startbtn" id="startButton">
+                        <span class="material-symbols-outlined start-icon">play_arrow</span>
+                        <span class="start-label">Play</span>
+                    </button>
+                    <button class="lapbtn" id="lapButton">
+                        <span class="material-symbols-outlined">flag</span>Lap
+                    </button>
+                    <button class="resetbtn" id="resetButton">
+                        <span class="material-symbols-outlined">replay</span>Reset
+                    </button>
                 </div>
             </section>
             <section class="record-section">
                 <div class="record-content">
                     <div class="record">
-                        <span id="tophr">00</span> :
-                        <span id="topmin">00</span> :
-                        <span id="topsec">00</span> .
-                        <span id="topms">00</span>
+                        <span id="topHr">00</span> :
+                        <span id="topMin">00</span> :
+                        <span id="topSec">00</span> .
+                        <span id="topMs">00</span>
                     </div>
                     <h2>Fastest Lap</h2>
                 </div>
                 <div class="record-content">
                     <div class="record">
-                        <span id="avghr">00</span> :
-                        <span id="avgmin">00</span> :
-                        <span id="avgsec">00</span> .
-                        <span id="avgms">00</span>
+                        <span id="avgHr">00</span> :
+                        <span id="avgMin">00</span> :
+                        <span id="avgSec">00</span> .
+                        <span id="avgMs">00</span>
                     </div>
                     <h2>Average Lap</h2>
                 </div>
                 <div class="record-content">
                     <div class="record">
-                        <span id="lowhr">00</span> :
-                        <span id="lowmin">00</span> :
-                        <span id="lowsec">00</span> .
-                        <span id="lowms">00</span>
+                        <span id="lowHr">00</span> :
+                        <span id="lowMin">00</span> :
+                        <span id="lowSec">00</span> .
+                        <span id="lowMs">00</span>
                     </div>
                     <h2>Slowest Lap</h2>
                 </div>
@@ -55,7 +62,10 @@
             <section class="lap-section">
                 <header class="lap-head">
                     <h1>Lap History</h1>
-                    <button><span class="material-symbols-outlined">clear_all</span></button>
+                    <button>
+                        <span class="material-symbols-outlined icon">delete</span>
+                        <span class="label">Clear</span>
+                    </button>
                 </header>
                 <div class="lap-history">
                     <div class="lap-list">
@@ -69,5 +79,7 @@
             </section>
         </div>
     </main>
+
+    <script src="stopwatch.js"></script>
 </body>
 </html>
