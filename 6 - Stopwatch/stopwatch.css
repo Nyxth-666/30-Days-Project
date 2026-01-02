@@ -140,7 +140,7 @@ main {
 .lap-section {
     display: flex;
     flex-direction: column;
-    padding: 33px 23px;
+    padding: 25px 23px;
     width: 795px;
     height: 340px;
     align-items: center;
@@ -174,4 +174,74 @@ main {
     border-radius: 50%;
     border: none;
     cursor: pointer;
+}
+
+.lap-section .lap-history {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.lap-history .lap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 5px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.lap-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lap-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.lap-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lap-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lap-name {
+    opacity: 0.6;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.lap-time {
+    color: var(--tertiary-color);
+    font-weight: 600;
+}
+
+.lap-gap {
+    font-size: 0.85rem;
+    opacity: 0.5px;
+    color: var(--text-color);
+}
+
+.fastest {
+    color: #69E09D;
+}
+
+.slowest {
+    color: #A04448;
+}
+
+.positive {
+    color: #3eaf44;
+}
+
+.negative {
+    color: #bb4f4f;
 }
