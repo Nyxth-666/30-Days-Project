@@ -76,28 +76,20 @@ let laps = [];
 
 // Timer Function
 function formatTime(ms) {
-    const hours = Math.floor(ms / 3600000);
-    const minute = Math.floor((ms % 3600000) / 60000);
-    const seconds = Math.floor((ms % 60000) / 1000);
-    const milliseconds = ms % 1000;
-
-    mainHour.textContent = hours.toString().padStart(2, "0");
-    mainMin.textContent = minute.toString().padStart(2, "0");
-    mainSec.textContent = seconds.toString().padStart(2, "0");
-    mainMs.textContent = milliseconds.toString().padStart(3, "0");
+    return {
+    hours: Math.floor(ms / 3600000),
+    minute: Math.floor((ms % 3600000) / 60000),
+    seconds: Math.floor((ms % 60000) / 1000),
+    milliseconds: ms % 1000
+    }
 };
 
-function setTimeLap(ms, hrE1, minE1, secE1, msE1) {
-    const hours = Math.floor(ms / 3600000);
-    const minute = Math.floor((ms % 3600000) / 60000);
-    const seconds = Math.floor((ms % 60000) / 1000);
-    const milliseconds = ms % 1000;
-
-    hrE1.textContent = hours.toString().padStart(2, "0");
-    minE1.textContent = minute.toString().padStart(2, "0");
-    secE1.textContent = seconds.toString().padStart(2, "0");
-    msE1.textContent = milliseconds.toString().padStart(3, "0");
-}
+function displayTime(time, hrE1, minE1, secE1, msE1) {
+    hrE1.textContent = time.hours.toString().padStart(2, "0");
+    minE1.textContent = time.minute.toString().padStart(2, "0");
+    secE1.textContent = time.seconds.toString().padStart(2, "0");
+    msE1.textContent = time.milliseconds.toString().padStart(3, "0");
+};
 
 // Start/Pause Timer
 function toggleStartPause() {
@@ -112,7 +104,8 @@ function toggleStartPause() {
         const now = Date.now();
         elapsedTime += now - lastTime;
         lastTime = now;
-        formatTime(elapsedTime);
+        displayTime(
+            formatTime(elapsedTime), mainHour, mainMin, mainSec, mainMs);
     }, 10)
 
     isRunning = true;
@@ -132,9 +125,9 @@ function updateLapsTime() {
 };
 
 function updateLapDisplay(lowest, highest, average) {
-    setTimeLap(lowest, lowHour, lowMin, lowSec, lowMs);
-    setTimeLap(highest, topHour, topMin, topSec, topMs);
-    setTimeLap(average, avgHour, avgMin, avgSec, avgMs);
+    displayTime(formatTime(lowest), lowHour, lowMin, lowSec, lowMs);
+    displayTime(formatTime(highest), topHour, topMin, topSec, topMs);
+    displayTime(formatTime(average), avgHour, avgMin, avgSec, avgMs);
 };
 
 // Reset
@@ -143,5 +136,8 @@ function reset() {
     elapsedTime = 0;
     isRunning = false;
     laps = [];
-    formatTime(0);
+    displayTime(formatTime(0), mainHour, mainMin, mainSec, mainMs);
+    displayTime(formatTime(0), lowHour, lowMin, lowSec, lowMs);
+    displayTime(formatTime(0), topHour, topMin, topSec, topMs);
+    displayTime(formatTime(0), avgHour, avgMin, avgSec, avgMs);
 };
