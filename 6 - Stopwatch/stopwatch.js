@@ -111,6 +111,24 @@ function lap() {
     console.log(laps)
 };
 
+function updateLapsTime() {
+    if (laps.length === 0) return;
+
+    const lowest = Math.min(...laps);
+    const highest = Math.min(...laps);
+
+    const total = laps.reduce((sum, lap) => sum + lap, 0);
+    const average = Math.floor(total / laps.length);
+
+    updateLapDisplay(lowest, highest, average);
+};
+
+function updateLapDisplay(lowest, highest, average) {
+    setTimeLap(lowest, lowHour, lowMin, lowSec, lowMs);
+    setTimeLap(highest, topHour, topMin, topSec, topMs);
+    setTimeLap(average, avgHour, avgMin, avgSec, avgMs);
+};
+
 // Reset
 function reset() {
     clearInterval(timeInterval);
