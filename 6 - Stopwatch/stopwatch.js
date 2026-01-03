@@ -41,19 +41,16 @@ const label = document.querySelector('.start-label');
 
 // Buttons
 // Start/Pause Changes
-let running = false;
-
 startButton.addEventListener('click', () => {
-    running = !running;
+    toggleStartPause();
 
-    if (running) {
+    if (isRunning) {
         icon.textContent = "pause";
         label.textContent = "Pause";
-        toggleStartPause();
+        
     } else {
         icon.textContent = "play_arrow";
         label.textContent = "Play";
-        toggleStartPause();
     }
 });
 
@@ -92,16 +89,18 @@ function toggleStartPause() {
     if(isRunning) {
         clearInterval(timeInterval);
         isRunning = false;
-    } else {
-        let lastTime = Date.now();
-        timeInterval = setInterval(() => {
-            const now = Date.now();
-            elapsedTime += now - lastTime;
-            lastTime = now;
-            formatTime(elapsedTime);
-        }, 10)
-        isRunning = true;
+        return;
     }
+
+    let lastTime = Date.now();
+    timeInterval = setInterval(() => {
+        const now = Date.now();
+        elapsedTime += now - lastTime;
+        lastTime = now;
+        formatTime(elapsedTime);
+    }, 10)
+
+    isRunning = true;
 };
 
 // Lap
