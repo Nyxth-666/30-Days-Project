@@ -56,7 +56,11 @@ startButton.addEventListener('click', () => {
 
 // Lap Button
 lapButton.addEventListener('click', () => {
-    lap();
+    if (isRunning) return;
+
+    laps.push(elapsedTime);
+    
+    updateLapsTime();
 })
 
 // Reset Button
@@ -84,6 +88,18 @@ function formatTime(ms) {
     mainMs.textContent = milliseconds.toString().padStart(2, "0");
 };
 
+function setTimeLap(ms, hrE1, minE1, secE1, msE1) {
+    const hours = Math.floor(ms / 3600000);
+    const minute = Math.floor((ms % 3600000) / 60000);
+    const seconds = Math.floor((ms % 600000) / 1000);
+    const milliseconds = ms % 1000;
+
+    hrE1.textContent = hours.toString().padStart(2, "0");
+    minE1.textContent = minute.toString().padStart(2, "0");
+    secE1.textContent = seconds.toString().padStart(2, "0");
+    msE1.textContent = milliseconds.toString().padStart(2, "0");
+}
+
 // Start/Pause Timer
 function toggleStartPause() {
     if(isRunning) {
@@ -104,13 +120,6 @@ function toggleStartPause() {
 };
 
 // Lap
-function lap() {
-    if (!isRunning) return;
-    laps.push(elapsedTime);
-    console.log(formatTime(elapsedTime));
-    console.log(laps)
-};
-
 function updateLapsTime() {
     if (laps.length === 0) return;
 
