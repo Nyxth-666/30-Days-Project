@@ -37,7 +37,10 @@ const icon = document.querySelector('.start-icon');
 const label = document.querySelector('.start-label');
 
 // Lap History
-const lapList = document.querySelector('lapList');
+const lapList = document.getElementById('lapList');
+
+
+
 
 
 // Functions
@@ -60,15 +63,26 @@ startButton.addEventListener('click', () => {
 lapButton.addEventListener('click', () => {
     if (!isRunning) return;
 
+    const lapTime = elapsedTime;
+    const lapNumber = laps.length + 1;
+    const previousLap = laps[laps.length - 1] ?? 0;
+    const lapGap = lapTime - previousLap;
+
     laps.push(elapsedTime);
+
+    addLapHistory(
+        lapNumber,
+        formatLapTime(lapTime),
+        formatLapGap(lapGap)
+    );
+
     updateLapsTime();
-})
+});
 
 // Reset Button
 resetButton.addEventListener('click', () => {
     reset();
 });
-
 
 // Variables
 let elapsedTime = 0;
@@ -138,12 +152,21 @@ function addLapHistory(lapNumber, lapTime, lapGap) {
     lapRow.className = 'lap-row';
 
     lapRow.innerHTML = `
-        <span class="lap-name>Lap ${lapNumber}</span>
-        <span class="lap-time>${lapTime}</span>
-        <span class="lap-gap>${lapGap}</span>
+        <span class="lap-name">Lap ${lapNumber}</span>
+        <span class="lap-time">${lapTime}</span>
+        <span class="lap-gap">${lapGap}</span>
     `;
 
     lapList.prepend(lapRow);
+};
+
+function formatLapTime(ms) {
+    const timeResult = formatTime(ms);
+    return  `${timeResult.hours.toString().padStart(2, "0")}:` +
+            `${timeResult.minute.toString().padStart(2, "0")}:` +
+            `${timeResult.seconds.toString().padStart(2, "0")}:` +
+            `${timeResult.milliseconds.toString().padStart(3, "0")}:`
+            
 };
 
 // Reset
