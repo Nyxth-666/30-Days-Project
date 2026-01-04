@@ -223,6 +223,7 @@ main {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .lap-history .lap-list {
@@ -270,20 +271,4 @@ main {
     font-size: 0.85rem;
     opacity: 0.5px;
     color: var(--text-color);
-}
-
-.fastest {
-    color: #69E09D;
-}
-
-.slowest {
-    color: #A04448;
-}
-
-.positive {
-    color: #3eaf44;
-}
-
-.negative {
-    color: #bb4f4f;
 }
