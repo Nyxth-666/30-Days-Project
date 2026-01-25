@@ -4,7 +4,7 @@
 /* Styles for the Image Slider project */
 :root {
     --bg-color: #0E1217;
-    --text-color: #000;
+    --text-color: #fff;
     --paggination-dot: #002a5e;
     --paggination-dot-active: #00469b;
 }
@@ -16,8 +16,94 @@
 }
 
 body {
+    font-family: Inter;
     background: var(--bg-color);
     color: var(--text-color);
     min-height: 100vh;
 }
 
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+main {
+    display: flex;
+    margin-top: 9.125rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-show-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 68.75rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.items {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 40rem;
+}
+
+.items img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.items span {
+    position: absolute;
+    display: flex;
+    z-index: 9;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    font-size: 4.25rem;
+    font-weight: 900;
+    text-shadow: 0 .625rem .625rem rgba(0, 0, 0, 0.65);
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    padding: .625rem;
+    box-shadow: 0 .625rem .9375rem 0 rgba(0, 0, 0, 0.35);
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.prev {
+    left: 3.125rem;
+}
+
+.next {
+    right: 3.125rem;
+}
+
+.prev:hover,
+.next:hover {
+    opacity: 0.8;
+}
