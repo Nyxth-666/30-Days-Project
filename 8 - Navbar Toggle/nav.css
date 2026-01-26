@@ -100,6 +100,11 @@ Navigation Bar
     display: none;
 }
 
+/* User Info */
+.user-info-container {
+    margin-bottom: 5.6875rem;
+}
+
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
@@ -137,4 +142,16 @@ Navigation Bar
     font-weight: 1rem;
     font-weight: 400;
     color: var(--secondary-text-color);
+}
+
+.nav-container {
+    gap: 2.0625rem;
+    padding: 0 1.875rem;
+    align-items: start;
+}
+
+.nav-link {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
 }
