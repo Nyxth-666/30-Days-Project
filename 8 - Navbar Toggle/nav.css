@@ -180,6 +180,10 @@ Navigation Bar
 }
 
 .nav-link span {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 120px;
+    opacity: 1;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -198,6 +202,10 @@ Navigation Bar
 }
 
 .logout-button span {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 120px;
+    opacity: 1;
     font-size: 1.05rem;
     font-weight: 700;
 }
@@ -237,10 +245,19 @@ Navigation Bar ACTIVE
     height: 3.25rem;
 }
 
-.side-nav-bar.active .user-wrapper {
+.side-nav-bar.active .user-wrapper,
+.side-nav-bar.active .logout-button span,
+.side-nav-bar.active .nav-link span {
     opacity: 0;
-    pointer-events: none;
-    cursor: none;
-    user-select: none;
-    white-space: wrap;
+    max-width: 0;
+}
+
+.side-nav-bar.active .nav-link {
+    padding: 0.75rem;
+    gap: 0;
+}
+
+.side-nav-bar.active .logout-button {
+    gap: 0;
+    padding: 0.5rem;
 }
