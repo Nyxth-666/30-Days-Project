@@ -60,21 +60,34 @@ button {
     background: var(--accent-color);
     font-size: 1.0625rem;
     box-shadow: 0 .125rem .3125rem 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: color 150ms ease;
+}
+
+.new-quote span {
+    z-index: 10;
 }
 
 .new-quote::after {
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     background: var(--box-color);
     transition: 150ms ease-in-out;
     height: 0;
-    width: 0;
-    z-index: -2;
+    width: 100%;
+    z-index: -1;
 }
 
-.new-quote:hover::after {}
+.new-quote:hover::after {
+    height: 100%;
+    z-index: 2;
+}
+
+.new-quote:hover {
+    color: var(--text-color);
+}
 
 .button-container {
     margin-left: auto;
