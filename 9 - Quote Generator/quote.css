@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:opsz,wght@14..32,100..900&family=Lilita+One&family=Pacifico&family=Roboto:wght@100..900&display=swap");
+
+:root {
+    --bg-color: #7c40ff;
+    --box-color: #9666FF;
+    --text-color: #fff;
+    --accent-color: #D5C2FF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+}
+
+body {
+    display: flex;
+    color: var(--text-color);
+    background: var(--bg-color);
+    min-height: calc(100vh - 8.125rem);
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.quote-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 58.9375rem;
+    margin: 8.125rem auto;
+    gap: 3.5rem;
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 58.9375rem;
+    min-height: 39.25rem;
+    background: var(--box-color);
+    box-shadow: 0 .25rem 1.125rem .375rem rgba(0, 0, 0, 0.35);
+    border-radius: 1.25rem;
+}
+
+.new-quote {
+    display: flex;
+    width: 100%;
+    max-width: 14.6875rem;
+    min-height: 3.8125rem;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: .9375rem;
+    background: var(--accent-color);
+    font-size: 1.0625rem;
+}
