@@ -25,3 +25,20 @@ body {
     color: var(--primary-text-color);
 }
 
+button {
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+button:active {
+    opacity: 1;
+}
+
+input {
+    border: none;
+    text-align: right;
+}
