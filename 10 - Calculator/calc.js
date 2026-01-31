@@ -14,6 +14,10 @@ button.addEventListener("click", (event) => {
 
   const value = event.target.textContent;
   console.log(value);
+
+  handleDecimal();
+  handleOperator();
+  calculator();
 });
 
 function handleDecimal(num) {
@@ -33,8 +37,8 @@ function handleOperator(ope) {
 function calculator() {
   if (!previousInput || !currentInput || !operator) return;
 
-  const val1 = parseFloat(currentInput);
-  const val2 = parseFloat(previousInput);
+  const val1 = parseFloat(previousInput);
+  const val2 = parseFloat(currentInput);
 
   let result;
 
@@ -51,13 +55,21 @@ function calculator() {
     case "/":
       result = val2 !== 0 ? val1 / val2 : "Error";
       break;
+
+    default:
+      return;
   }
+
+  currentInput = result.toString();
+  previousInput = "";
+  operator = null;
+  inputBox.value = currentInput;
 }
 
 function clearDisplay() {
   currentInput = "";
   operator = null;
   previousInput = "";
-  inputBox.textContent = "";
-  outBox.textContent = "";
+  inputBox.value = "";
+  outBox.value = "";
 }
