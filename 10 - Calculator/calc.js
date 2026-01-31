@@ -3,7 +3,7 @@ const inputBox = document.getElementById("inputBox");
 const outBox = document.getElementById("outBox");
 
 // Buttons
-const button = document.querySelector(".button");
+const button = document.querySelector(".calc-buttons");
 
 let currentInput = "";
 let previousInput = "";
