@@ -1,6 +1,6 @@
 // Input Boxes
 const inputBox = document.getElementById("inputBox");
-const outBox = document.getElementById("outBox");
+const outBox = document.getElementById("outputBox");
 
 // Buttons
 const button = document.querySelector(".calc-buttons");
@@ -15,9 +15,25 @@ button.addEventListener("click", (event) => {
   const value = event.target.textContent;
   console.log(value);
 
-  handleDecimal();
-  handleOperator();
-  calculator();
+  if (event.target.classlist.contains("number")) {
+    handleDecimal(value);
+  }
+
+  if (event.target.classlist.contains("operator")) {
+    handleOperator(value);
+  }
+
+  if (event.target.classList.contains("sum")) {
+    calculator();
+  }
+
+  if (value === "AC") {
+    clearDisplay();
+  }
+
+  if (value === "DEL") {
+    deleteLasT();
+  }
 });
 
 function handleDecimal(num) {
