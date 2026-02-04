@@ -37,9 +37,9 @@ button.addEventListener("click", (event) => {
 });
 
 function handleDecimal(num) {
-  if (num === "." && currentInput === ".") {
-    currentInput += num;
-  }
+  if (num === "." && currentInput.includes(".")) return;
+  currentInput += num;
+  inputBox.value = currentInput;
 }
 
 function handleOperator(ope) {
@@ -47,7 +47,11 @@ function handleOperator(ope) {
 
   previousInput = currentInput;
   currentInput = "";
-  operator = ope;
+
+  if (ope === "x") operator = "*";
+  else operator = ope;
+
+  outBox.value = previousInput + " " + ope;
 }
 
 function calculator() {
@@ -71,15 +75,16 @@ function calculator() {
     case "/":
       result = val2 !== 0 ? val1 / val2 : "Error";
       break;
-
     default:
       return;
   }
 
+  inputBox.value = result;
+  outBox.value = "";
+
   currentInput = result.toString();
   previousInput = "";
   operator = null;
-  inputBox.value = currentInput;
 }
 
 function clearDisplay() {
@@ -88,4 +93,9 @@ function clearDisplay() {
   previousInput = "";
   inputBox.value = "";
   outBox.value = "";
+}
+
+function deleteLast() {
+  currentInput = currentInput.slice(0, -1);
+  inputBox.value = currentInput;
 }
