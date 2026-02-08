@@ -1,6 +1,6 @@
 // Input Boxes
 const inputBox = document.getElementById("inputBox");
-const outBox = document.getElementById("outputBox");
+const outputBox = document.getElementById("outputBox");
 
 // Buttons
 const button = document.querySelector(".calc-buttons");
@@ -8,6 +8,7 @@ const button = document.querySelector(".calc-buttons");
 let currentInput = "";
 let previousInput = "";
 let operator = null;
+let finalResult = "";
 
 button.addEventListener("click", (event) => {
   const btn = event.target.closest("button");
@@ -19,7 +20,9 @@ button.addEventListener("click", (event) => {
     handleDecimal(value);
   }
 
-  if (btn.classList.contains("operator")) {
+  if (value === "√" || value === "²") {
+    applyUnary(value);
+  } else if (btn.classList.contains("operator")) {
     handleOperator(value);
   }
 
@@ -51,7 +54,7 @@ function handleOperator(ope) {
   if (ope === "x") operator = "*";
   else operator = ope;
 
-  outBox.value = previousInput + " " + ope;
+  outputBox.value = previousInput + " " + ope;
 }
 
 function calculator() {
@@ -75,11 +78,17 @@ function calculator() {
     case "/":
       result = val2 !== 0 ? val1 / val2 : "Error";
       break;
+    case "%":
+      result = val1 % val2;
+      break;
+    case "^":
+      result = Math.pow(val1, val2);
+      break;
     default:
       return;
   }
 
-  outBox.value = result;
+  outputBox.value = result;
   inputBox.value = "";
 
   currentInput = result.toString();
@@ -92,10 +101,26 @@ function clearDisplay() {
   operator = null;
   previousInput = "";
   inputBox.value = "";
-  outBox.value = "";
+  outputBox.value = "";
 }
 
 function deleteLast() {
   currentInput = currentInput.slice(0, -1);
   inputBox.value = currentInput;
+}
+
+function applyUnary(ope) {
+  if (currentInput === "") return;
+
+  const val = parseFloat(currentInput);
+  let result;
+
+  if (ope === "√") {
+    result = Math.sqrt(val);
+  } else if (ope === "²") {
+    result = val * val;
+  }
+
+  inputBox.value = result.toString();
+  currentInput = result.toString();
 }
