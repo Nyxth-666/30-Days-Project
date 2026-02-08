@@ -5,10 +5,8 @@ const outputBox = document.getElementById("outputBox");
 // Buttons
 const button = document.querySelector(".calc-buttons");
 
+let expression = "";
 let currentInput = "";
-let previousInput = "";
-let operator = null;
-let finalResult = "";
 
 button.addEventListener("click", (event) => {
   const btn = event.target.closest("button");
@@ -18,6 +16,10 @@ button.addEventListener("click", (event) => {
 
   if (btn.classList.contains("number")) {
     handleDecimal(value);
+  }
+
+  if (value === "(" || value === ")") {
+    handleParentheses(value);
   }
 
   if (value === "√" || value === "²") {
@@ -37,12 +39,14 @@ button.addEventListener("click", (event) => {
   if (value === "DEL") {
     deleteLast();
   }
+
+  inputBox.value = expression;
 });
 
 function handleDecimal(num) {
   if (num === "." && currentInput.includes(".")) return;
   currentInput += num;
-  inputBox.value = currentInput;
+  expression += num;
 }
 
 function handleOperator(ope) {
@@ -51,62 +55,37 @@ function handleOperator(ope) {
   previousInput = currentInput;
   currentInput = "";
 
-  if (ope === "x") operator = "*";
-  else operator = ope;
-
-  inputBox.value = previousInput + " " + ope;
+  if (ope === "x") {
+    expression += "*";
+  } else {
+    expression += ope;
+  }
 }
 
 function calculator() {
-  if (!previousInput || !currentInput || !operator) return;
+  if (expression === "") return;
 
-  const val1 = parseFloat(previousInput);
-  const val2 = parseFloat(currentInput);
-
-  let result;
-
-  switch (operator) {
-    case "+":
-      result = val1 + val2;
-      break;
-    case "-":
-      result = val1 - val2;
-      break;
-    case "*":
-      result = val1 * val2;
-      break;
-    case "/":
-      result = val2 !== 0 ? val1 / val2 : "Error";
-      break;
-    case "%":
-      result = val1 % val2;
-      break;
-    case "^":
-      result = Math.pow(val1, val2);
-      break;
-    default:
-      return;
+  try {
+    let result = eval(expression);
+    outputBox.value = result;
+    currentInput = result.toString();
+    expression = result.toString();
+    inputBox.value = expression;
+  } catch (e) {
+    outputBox.value = "Error";
   }
-
-  outputBox.value = result;
-  inputBox.value = "";
-
-  currentInput = result.toString();
-  previousInput = "";
-  operator = null;
 }
 
 function clearDisplay() {
   currentInput = "";
-  operator = null;
-  previousInput = "";
+  expression = "";
   inputBox.value = "";
   outputBox.value = "";
 }
 
 function deleteLast() {
   currentInput = currentInput.slice(0, -1);
-  inputBox.value = currentInput;
+  expression = expression.slice(0, -1);
 }
 
 function applyUnary(ope) {
@@ -123,4 +102,8 @@ function applyUnary(ope) {
 
   inputBox.value = result.toString();
   currentInput = result.toString();
+}
+
+function handleParentheses(paren) {
+  expression += paren;
 }
